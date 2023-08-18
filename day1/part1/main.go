@@ -15,23 +15,23 @@ func readInputAndFindMostCalories(filename string) int {
 	}
 	inputData := string(raw_data)
 	raw_data = make([]byte, 0)
-	lines := strings.Split(inputData, "\n")
+	groups := strings.Split(inputData, "\n\n")
 	mostCalories := 0
-	currentCalories := 0
-	for _, line := range lines {
-		if line == "" {
-			if currentCalories > mostCalories {
-				mostCalories = currentCalories
+	for _, group := range groups {
+		sum := 0
+		lines := strings.Split(group, "\n")
+		for _, line := range lines {
+			cal, err := strconv.Atoi(line)
+			if err != nil {
+				log.Fatal("Error converting string to int")
 			}
-			currentCalories = 0
-			continue
+			sum += cal
 		}
-		calories, err := strconv.Atoi(line)
-		if err != nil {
-			log.Fatal("Error converting string to int")
+		if sum > mostCalories {
+			mostCalories = sum
 		}
-		currentCalories += calories
 	}
+
 	return mostCalories
 }
 func main() {

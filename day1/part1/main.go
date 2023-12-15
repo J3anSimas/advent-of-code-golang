@@ -34,6 +34,7 @@ func readInputAndFindMostCalories(filename string) int {
 
 	return mostCalories
 }
+
 func main() {
 	fmt.Println(readInputAndFindMostCalories("../input.txt"))
 }

@@ -16,15 +16,7 @@ func main() {
 	raw_string := string(file)
 	lines := strings.Split(raw_string, "\n")
 	_ = lines
-	s := 0
-	for i, line := range lines {
-		for j := 0; j < len(line); j++ {
-			char := line[j]
-			parsed_char := string(char)
-			if parsed_char == "*" {
-				s += get_numbers(lines, i, j)
-			}
-		}
+		typescript}
 	}
 	fmt.Println(s)
 }

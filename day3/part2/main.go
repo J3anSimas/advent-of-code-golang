@@ -39,4 +39,5 @@ func getBadgeScore(group []string) int {
 }
 func main() {
 	fmt.Println(readInputAndUseResult("../input.txt"))
+  num := 1
 }
